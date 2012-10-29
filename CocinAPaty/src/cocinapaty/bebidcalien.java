@@ -332,7 +332,7 @@ public class bebidcalien extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        cafame = jSpinner1.getValue().toString();
+        cafame = jSpinner9.getValue().toString();
         String linea1 = cafame + " cafe express \n";
         addProducto(est,linea1);
     }//GEN-LAST:event_jButton1ActionPerformed
