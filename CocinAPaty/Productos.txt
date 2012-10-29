@@ -1,0 +1,24 @@
+"cafe americano"-
+"cafe late"-
+"capuchino"-
+"choko expresso"-
+"infusion organica"-
+"manzanilla"-
+"menta fria"-
+"te de hierva buena"-
+"te de canela"-
+"cafe helado"-
+"capuchino"-
+"frape oreo"-
+"frappuccino"-
+"frappuccino mocca"-
+"baguette hawaiano"-
+"croissant jamon"-
+"cubano"-
+"sandwich hawaiano"-
+"sandwich"-
+"browie"-
+"nieve de frambuesa"-
+"pay de zarzamora"-
+"selva negra"-
+"tres leches"-
