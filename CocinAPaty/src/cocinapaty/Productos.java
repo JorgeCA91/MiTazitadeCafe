@@ -17,14 +17,14 @@ import java.util.Arrays;
  */
 public class Productos 
 {
-    String ruta1="Archivos/Productos.txt";
+    String ruta1="Productos.txt";
     String[][] productos = new String[50][2];
     BufferedReader producto;
     Productos()
     {
     }
     
-    public void generaCompImp()
+    public void generaProd()
     {
         int opc=0;
         producto = cargaAr(ruta1);
@@ -34,10 +34,13 @@ public class Productos
         {
             datosProducto=l.split("-");
             l=leeAr(producto);
-            for(int j =0;j < 2;j++)
-                productos[opc][j] = datosProducto[j];
+                for(int j =0;j<2;j++)
+                    productos[opc][j] = datosProducto[j];
             opc++;
         }
+        for (int i =0 ; i<8;i++)
+            for (int j=0;j<2;j++)
+            System.out.println(getValorComp(i,j)+"-"+productos[i][j]);
     }
     public String getValorComp(int pro, int pre)
     {

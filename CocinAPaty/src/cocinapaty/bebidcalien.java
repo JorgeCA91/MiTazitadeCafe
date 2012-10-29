@@ -23,8 +23,12 @@ public class bebidcalien extends javax.swing.JFrame {
         initComponents();
         this.est = est;
         prod = new Productos();
-        
+        prod.generaProd();
         System.out.println(prod.getValorComp(0, 0));
+        
+        for (int i =0 ; i<8;i++)
+            for (int j=0;j<2;j++)
+            System.out.println(prod.getValorComp(i,j));
     
     ManejadorBebidasC botonesCafeCal =new ManejadorBebidasC();
     jButton1.addActionListener(botonesCafeCal);
