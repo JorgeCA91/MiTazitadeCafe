@@ -4,13 +4,9 @@
  */
 package cocinapaty;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Array;
 import java.util.Arrays;
-
 /**
  *
  * @author Jorge
@@ -47,6 +43,20 @@ public class Comanda
         else
         return false;
     }
+    public void  escribe(String p,BufferedWriter bw) 
+{try 
+ {
+  PrintWriter salida;
+  salida = new PrintWriter(bw);
+  salida.print("\n");
+  salida.print(p);
+  salida.close();
+ }
+ catch(Exception e) 
+ {System.out.println("I/O Error");
+  System.exit(0);
+ }
+}
     public static BufferedReader cargaAr(String nombre)
     {
         BufferedReader a=null;	 

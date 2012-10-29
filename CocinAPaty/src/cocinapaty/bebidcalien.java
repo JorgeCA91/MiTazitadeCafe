@@ -6,6 +6,7 @@ package cocinapaty;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -17,6 +18,12 @@ public class bebidcalien extends javax.swing.JFrame {
     Estacion est;
     String cafame;
     Productos prod;
+    JTextArea ticket;
+    double total=0;
+    int numBebida;
+    double precioUnit;
+    double precioInt;
+    String linea1,lineaTicket;
     
     public bebidcalien(Estacion est) 
     {
@@ -24,12 +31,9 @@ public class bebidcalien extends javax.swing.JFrame {
         this.est = est;
         prod = new Productos();
         prod.generaProd();
-        System.out.println(prod.getValorComp(0, 0));
+        ticket = new JTextArea();
         
-        for (int i =0 ; i<8;i++)
-            for (int j=0;j<2;j++)
-            System.out.println(prod.getValorComp(i,j));
-    
+        
     ManejadorBebidasC botonesCafeCal =new ManejadorBebidasC();
     jButton1.addActionListener(botonesCafeCal);
     jButton2.addActionListener(botonesCafeCal);
@@ -112,6 +116,7 @@ public class bebidcalien extends javax.swing.JFrame {
         jLabel2.setBounds(10, 10, 150, 70);
         jLayeredPane1.add(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bebidas calientes/cafeamericano.png"))); // NOI18N
         jButton1.setText("Café americano");
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -122,53 +127,56 @@ public class bebidcalien extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jButton1.setBounds(20, 110, 110, 140);
+        jButton1.setBounds(20, 110, 120, 140);
         jLayeredPane1.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel1.setText("Precio ");
-        jLabel1.setBounds(140, 130, 40, 14);
+        jLabel1.setBounds(150, 130, 40, 14);
         jLayeredPane1.add(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jSpinner1.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
-        jSpinner1.setBounds(200, 450, 40, 20);
+        jSpinner1.setBounds(210, 450, 40, 20);
         jLayeredPane1.add(jSpinner1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel3.setText("Cantidad");
-        jLabel3.setBounds(140, 150, 50, 14);
+        jLabel3.setBounds(150, 150, 50, 14);
         jLayeredPane1.add(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bebidas calientes/cafelatte.png"))); // NOI18N
         jButton2.setText("Café latte");
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton2.setBounds(20, 260, 110, 140);
+        jButton2.setBounds(20, 260, 120, 140);
         jLayeredPane1.add(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel4.setText("Precio   ");
-        jLabel4.setBounds(140, 280, 40, 14);
+        jLabel4.setBounds(150, 280, 50, 14);
         jLayeredPane1.add(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel5.setText("Cantidad");
-        jLabel5.setBounds(140, 300, 50, 14);
+        jLabel5.setBounds(150, 300, 50, 14);
         jLayeredPane1.add(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        jButton3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bebidas calientes/capuchino.png"))); // NOI18N
         jButton3.setText("Capuchino");
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton3.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton3.setBounds(20, 410, 110, 140);
+        jButton3.setBounds(20, 410, 120, 140);
         jLayeredPane1.add(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel6.setText("Precio  ");
-        jLabel6.setBounds(150, 430, 40, 14);
+        jLabel6.setBounds(150, 430, 50, 14);
         jLayeredPane1.add(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel7.setText("Cantidad");
         jLabel7.setBounds(150, 450, 50, 14);
         jLayeredPane1.add(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        jButton4.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bebidas calientes/chocoexpresso.png"))); // NOI18N
         jButton4.setText("choco expresso");
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -179,63 +187,67 @@ public class bebidcalien extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jButton4.setBounds(20, 560, 110, 140);
+        jButton4.setBounds(20, 560, 120, 140);
         jLayeredPane1.add(jButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel8.setText("Precio   ");
-        jLabel8.setBounds(150, 1220, 40, 14);
+        jLabel8.setBounds(150, 1220, 50, 14);
         jLayeredPane1.add(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel9.setText("Cantidad");
         jLabel9.setBounds(150, 600, 50, 14);
         jLayeredPane1.add(jLabel9, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        jButton5.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bebidas calientes/tedecanela.png"))); // NOI18N
         jButton5.setText("Té de canela");
         jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton5.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton5.setBounds(20, 720, 110, 140);
+        jButton5.setBounds(20, 720, 120, 140);
         jLayeredPane1.add(jButton5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        jButton6.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bebidas calientes/tedehiervabuena.png"))); // NOI18N
         jButton6.setText("Té de hierbabuena");
         jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton6.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton6.setBounds(20, 880, 110, 140);
+        jButton6.setBounds(20, 880, 120, 140);
         jLayeredPane1.add(jButton6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        jButton7.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bebidas calientes/tedemanzanilla.png"))); // NOI18N
         jButton7.setText("Té manzanilla");
         jButton7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton7.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jButton7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton7.setBounds(20, 1040, 110, 140);
+        jButton7.setBounds(20, 1040, 120, 140);
         jLayeredPane1.add(jButton7, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        jButton8.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bebidas calientes/tedementa.png"))); // NOI18N
         jButton8.setText("Té de menta");
         jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton8.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jButton8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton8.setBounds(20, 1200, 110, 140);
+        jButton8.setBounds(20, 1200, 117, 140);
         jLayeredPane1.add(jButton8, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel10.setText("Precio  ");
-        jLabel10.setBounds(150, 580, 40, 14);
+        jLabel10.setBounds(150, 580, 50, 14);
         jLayeredPane1.add(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel11.setText("Precio");
-        jLabel11.setBounds(150, 740, 40, 14);
+        jLabel11.setBounds(150, 740, 50, 14);
         jLayeredPane1.add(jLabel11, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel12.setText("Precio  ");
-        jLabel12.setBounds(150, 900, 40, 14);
+        jLabel12.setBounds(150, 900, 50, 14);
         jLayeredPane1.add(jLabel12, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel13.setText("Precio  ");
-        jLabel13.setBounds(150, 1060, 40, 14);
+        jLabel13.setBounds(150, 1060, 50, 14);
         jLayeredPane1.add(jLabel13, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel14.setText("Cantidad");
@@ -255,63 +267,63 @@ public class bebidcalien extends javax.swing.JFrame {
         jLayeredPane1.add(jLabel17, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel19.setText("$ 15.00");
-        jLabel19.setBounds(190, 130, 60, 14);
+        jLabel19.setBounds(210, 130, 50, 14);
         jLayeredPane1.add(jLabel19, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel20.setText("$ 15.00");
-        jLabel20.setBounds(200, 900, 60, 14);
+        jLabel20.setBounds(210, 900, 50, 14);
         jLayeredPane1.add(jLabel20, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel21.setText("$ 15.00");
-        jLabel21.setBounds(200, 740, 60, 14);
+        jLabel21.setBounds(210, 740, 50, 14);
         jLayeredPane1.add(jLabel21, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel22.setText("$ 15.00");
-        jLabel22.setBounds(200, 1220, 60, 14);
+        jLabel22.setBounds(210, 1220, 50, 14);
         jLayeredPane1.add(jLabel22, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel23.setText("$ 15.00");
-        jLabel23.setBounds(200, 1060, 60, 14);
+        jLabel23.setBounds(210, 1060, 50, 14);
         jLayeredPane1.add(jLabel23, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel24.setText("$  20.00");
-        jLabel24.setBounds(180, 280, 70, 14);
+        jLabel24.setBounds(210, 280, 50, 14);
         jLayeredPane1.add(jLabel24, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel25.setText("$ 25.00");
-        jLabel25.setBounds(200, 430, 60, 14);
+        jLabel25.setBounds(210, 430, 50, 14);
         jLayeredPane1.add(jLabel25, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel26.setText("$ 30.00");
-        jLabel26.setBounds(200, 580, 60, 14);
+        jLabel26.setBounds(210, 580, 50, 14);
         jLayeredPane1.add(jLabel26, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jSpinner9.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
-        jSpinner9.setBounds(190, 150, 40, 20);
+        jSpinner9.setBounds(210, 150, 40, 20);
         jLayeredPane1.add(jSpinner9, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jSpinner10.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
-        jSpinner10.setBounds(190, 300, 40, 20);
+        jSpinner10.setBounds(210, 300, 40, 20);
         jLayeredPane1.add(jSpinner10, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jSpinner11.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
-        jSpinner11.setBounds(200, 1240, 40, 20);
+        jSpinner11.setBounds(210, 1240, 40, 20);
         jLayeredPane1.add(jSpinner11, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jSpinner12.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
-        jSpinner12.setBounds(200, 600, 40, 20);
+        jSpinner12.setBounds(210, 600, 40, 20);
         jLayeredPane1.add(jSpinner12, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jSpinner13.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
-        jSpinner13.setBounds(200, 760, 40, 20);
+        jSpinner13.setBounds(210, 760, 40, 20);
         jLayeredPane1.add(jSpinner13, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jSpinner14.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
-        jSpinner14.setBounds(200, 920, 40, 20);
+        jSpinner14.setBounds(210, 920, 40, 20);
         jLayeredPane1.add(jSpinner14, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jSpinner15.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
-        jSpinner15.setBounds(200, 1080, 40, 20);
+        jSpinner15.setBounds(210, 1080, 40, 20);
         jLayeredPane1.add(jSpinner15, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondolargo.png"))); // NOI18N
@@ -341,9 +353,7 @@ public class bebidcalien extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -421,52 +431,71 @@ public class bebidcalien extends javax.swing.JFrame {
         @Override
         public void actionPerformed(ActionEvent botonProducto)
         {
+            numBebida = 0;
+            precioUnit = 0;
+            precioInt = 0;
+            linea1 = "";
+            lineaTicket = "";
             if(botonProducto.getSource()==jButton1)
             {
-                cafame = jSpinner9.getValue().toString();
-                String linea1 = cafame +" Cafe americano";
+                cafame = jSpinner9.getValue().toString(); 
+                linea1 = cafame +prod.getValorComp(0, 0)+"\n";
                 addProducto(est,linea1);
+                numBebida = Integer.parseInt(jSpinner9.getValue().toString());
+                precioUnit = Double.parseDouble(prod.getValorComp(0, 1));
+                precioInt = numBebida*precioUnit;
+                total = total + precioInt;
+                System.out.println(precioInt);
+                lineaTicket = cafame+"  "+prod.getValorComp(0, 0)+"  "+prod.getValorComp(0, 1)+"  "+precioInt+"\n";
+                ticket.append(lineaTicket);
             }
             if(botonProducto.getSource()==jButton2)
             {
                 cafame = jSpinner10.getValue().toString();
-                String linea1 = cafame + " "+ prod.getValorComp(1, 0);
+                linea1 = cafame + " "+ prod.getValorComp(1, 0)+"\n";
                 addProducto(est,linea1);
+                numBebida = Integer.parseInt(jSpinner9.getValue().toString());
+                precioUnit = Double.parseDouble(prod.getValorComp(1, 1));
+                precioInt = numBebida*precioUnit;
+                total = total + precioInt;
+                System.out.println(precioInt);
+                lineaTicket = cafame+"  "+prod.getValorComp(1, 0)+"  "+prod.getValorComp(1, 1)+"  "+precioInt+"\n";
+                ticket.append(lineaTicket);
             }
             if(botonProducto.getSource()==jButton3)
             {
                 cafame = jSpinner1.getValue().toString();
-                String linea1 = cafame + " "+ prod.getValorComp(2, 0);
+                String linea1 = cafame + " "+ prod.getValorComp(2, 0)+"\n";
                 addProducto(est,linea1);
             }
             if(botonProducto.getSource()==jButton4)
             {
                 cafame = jSpinner12.getValue().toString();
-                String linea1 = cafame + " "+ prod.getValorComp(5, 0);
+                String linea1 = cafame + " "+ prod.getValorComp(5, 0)+"\n";
                 addProducto(est,linea1);
             }
             if(botonProducto.getSource()==jButton5)
             {
                 cafame = jSpinner13.getValue().toString();
-                String linea1 = cafame + " "+ prod.getValorComp(4, 0);
+                String linea1 = cafame + " "+ prod.getValorComp(4, 0)+"\n";
                 addProducto(est,linea1);
             }
             if(botonProducto.getSource()==jButton6)
             {
                 cafame = jSpinner14.getValue().toString();
-                String linea1 = cafame + " "+ prod.getValorComp(5, 0);
+                String linea1 = cafame + " "+ prod.getValorComp(5, 0)+"\n";
                 addProducto(est,linea1);
             }
             if(botonProducto.getSource()==jButton7)
             {
                 cafame = jSpinner15.getValue().toString();
-                String linea1 = cafame + " "+ prod.getValorComp(6, 0);
+                String linea1 = cafame + " "+ prod.getValorComp(6, 0)+"\n";
                 addProducto(est,linea1);
             }
             if(botonProducto.getSource()==jButton8)
             {
                 cafame = jSpinner11.getValue().toString();
-                String linea1 = cafame +" "+ prod.getValorComp(7, 0);
+                String linea1 = cafame +" "+ prod.getValorComp(7, 0)+"\n";
                 addProducto(est,linea1);
             }
             

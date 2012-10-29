@@ -1,14 +1,40 @@
 package cocinapaty;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+
 public class Estacion extends javax.swing.JFrame {
     
     MenuGral menu;
     public bebidcalien bebc;
     String mesero,mesa;
+    Comanda com;
     public Estacion() 
     {
         initComponents();
         menu = new MenuGral(this);
+        com = new Comanda();
+        com.generaCompImp();
+        try
+  {
+  	         
+  BufferedWriter bw = new BufferedWriter(new FileWriter(com.ruta1));
+  }
+ catch(Exception ioex) 
+ {System.out.println("I/O Error");
+  System.exit(0);
+ }
+        jButton2.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                com.escribe(mesa, null);
+            }
+        });{
+        
+    }
     }
 
     @SuppressWarnings("unchecked")
@@ -147,7 +173,8 @@ public class Estacion extends javax.swing.JFrame {
             
             
     }//GEN-LAST:event_jButton4ActionPerformed
-
+    
+    
     
     public void addProductoEst(String cafame)
     {

@@ -4,10 +4,7 @@
  */
 package cocinapaty;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
@@ -38,10 +35,21 @@ public class Productos
                     productos[opc][j] = datosProducto[j];
             opc++;
         }
-        for (int i =0 ; i<8;i++)
-            for (int j=0;j<2;j++)
-            System.out.println(getValorComp(i,j)+"-"+productos[i][j]);
     }
+    public static void  escribe(String p,BufferedWriter bw) 
+{try 
+ {
+  PrintWriter salida;
+  salida = new PrintWriter(bw);
+  salida.print("\n");
+  salida.print(p);
+  salida.close();
+ }
+ catch(Exception e) 
+ {System.out.println("I/O Error");
+  System.exit(0);
+ }
+}
     public String getValorComp(int pro, int pre)
     {
         String valor = productos[pro][pre];
@@ -62,7 +70,7 @@ public class Productos
         }
 
         return a;
-    } 
+    }
  
     public static  String leeAr(BufferedReader d)
     {
