@@ -4,6 +4,9 @@
  */
 package cocinapaty;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author hebert
@@ -13,10 +16,25 @@ public class bebidcalien extends javax.swing.JFrame {
     
     Estacion est;
     String cafame;
+    Productos prod;
     
-    public bebidcalien(Estacion est) {
+    public bebidcalien(Estacion est) 
+    {
         initComponents();
         this.est = est;
+        prod = new Productos();
+        
+        System.out.println(prod.getValorComp(0, 0));
+    
+    ManejadorBebidasC botonesCafeCal =new ManejadorBebidasC();
+    jButton1.addActionListener(botonesCafeCal);
+    jButton2.addActionListener(botonesCafeCal);
+    jButton3.addActionListener(botonesCafeCal);
+    jButton4.addActionListener(botonesCafeCal);
+    jButton5.addActionListener(botonesCafeCal);
+    jButton6.addActionListener(botonesCafeCal);
+    jButton7.addActionListener(botonesCafeCal);
+    jButton8.addActionListener(botonesCafeCal);
     }
 
     /**
@@ -332,15 +350,16 @@ public class bebidcalien extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        cafame = jSpinner9.getValue().toString();
-        String linea1 = cafame + " cafe express \n";
-        addProducto(est,linea1);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public void addProducto(Estacion est,String linea)
     {
         est.addProductoEst(linea);
     }
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -392,4 +411,62 @@ public class bebidcalien extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinner15;
     private javax.swing.JSpinner jSpinner9;
     // End of variables declaration//GEN-END:variables
+
+    private class ManejadorBebidasC implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent botonProducto)
+        {
+            if(botonProducto.getSource()==jButton1)
+            {
+                cafame = jSpinner9.getValue().toString();
+                String linea1 = cafame +" Cafe americano";
+                addProducto(est,linea1);
+            }
+            if(botonProducto.getSource()==jButton2)
+            {
+                cafame = jSpinner10.getValue().toString();
+                String linea1 = cafame + " "+ prod.getValorComp(1, 0);
+                addProducto(est,linea1);
+            }
+            if(botonProducto.getSource()==jButton3)
+            {
+                cafame = jSpinner1.getValue().toString();
+                String linea1 = cafame + " "+ prod.getValorComp(2, 0);
+                addProducto(est,linea1);
+            }
+            if(botonProducto.getSource()==jButton4)
+            {
+                cafame = jSpinner12.getValue().toString();
+                String linea1 = cafame + " "+ prod.getValorComp(5, 0);
+                addProducto(est,linea1);
+            }
+            if(botonProducto.getSource()==jButton5)
+            {
+                cafame = jSpinner13.getValue().toString();
+                String linea1 = cafame + " "+ prod.getValorComp(4, 0);
+                addProducto(est,linea1);
+            }
+            if(botonProducto.getSource()==jButton6)
+            {
+                cafame = jSpinner14.getValue().toString();
+                String linea1 = cafame + " "+ prod.getValorComp(5, 0);
+                addProducto(est,linea1);
+            }
+            if(botonProducto.getSource()==jButton7)
+            {
+                cafame = jSpinner15.getValue().toString();
+                String linea1 = cafame + " "+ prod.getValorComp(6, 0);
+                addProducto(est,linea1);
+            }
+            if(botonProducto.getSource()==jButton8)
+            {
+                cafame = jSpinner11.getValue().toString();
+                String linea1 = cafame +" "+ prod.getValorComp(7, 0);
+                addProducto(est,linea1);
+            }
+            
+        }
+    }
 }
+

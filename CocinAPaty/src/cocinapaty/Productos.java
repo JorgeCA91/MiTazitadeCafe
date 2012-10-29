@@ -18,11 +18,10 @@ import java.util.Arrays;
 public class Productos 
 {
     String ruta1="Archivos/Productos.txt";
-    String[][] productos;
+    String[][] productos = new String[50][2];
     BufferedReader producto;
     Productos()
     {
-        productos[50][2] = new String();
     }
     
     public void generaCompImp()
@@ -40,12 +39,11 @@ public class Productos
             opc++;
         }
     }
-    public boolean getValorComp(int imp, int val)
+    public String getValorComp(int pro, int pre)
     {
-        if(productos[imp][val].compareTo("true")==0)
-        return true;
-        else
-        return false;
+        String valor = productos[pro][pre];
+        return valor;
+        
     }
     public static BufferedReader cargaAr(String nombre)
     {
