@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import javax.swing.JOptionPane;
 
 public class Estacion extends javax.swing.JFrame {
     Cocina coc;
@@ -12,13 +13,13 @@ public class Estacion extends javax.swing.JFrame {
     String mesero,mesa;
     BufferedWriter bw;
     Comanda com;
-    public Estacion(Cocina coc) 
+    public Estacion() 
     {
         initComponents();
         menu = new MenuGral(this);
         com = new Comanda();
         com.generaCompImp();
-        this.coc = coc;
+        
         try
             
   {
@@ -40,6 +41,15 @@ public class Estacion extends javax.swing.JFrame {
         });
     }
 
+    public void obtenCocina(Cocina coc)
+    {
+        this.coc = coc;
+    }
+    public void msjSurtido(String com)
+    {
+        //JOptionPane.showMessageDialog(null, "La comanda #x Fue surtida", "Surtido", JOptionPane.INFORMATION_MESSAGE);
+        addComEst(com);
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -182,6 +192,10 @@ public class Estacion extends javax.swing.JFrame {
     public void addProductoEst(String cafame)
     {
         jTextArea1.append(cafame);
+    }
+    public void addComEst(String com)
+    {
+        jTextArea2.append(com);
     }
     
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

@@ -1,9 +1,28 @@
 package cocinapaty;
 
-public class Cocina extends javax.swing.JFrame {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-    public Cocina() {
+public class Cocina extends javax.swing.JFrame 
+{
+    Estacion est;
+
+    public Cocina() 
+    {
         initComponents();
+    
+        jButton3.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent surtido)
+            {
+                String com="Comanda #x feu surtida";
+                est.msjSurtido(com);
+            }
+        });
+    }
+    
+    public void obtenEstacion(Estacion est)
+    {
+        this.est = est;
     }
 
     @SuppressWarnings("unchecked")

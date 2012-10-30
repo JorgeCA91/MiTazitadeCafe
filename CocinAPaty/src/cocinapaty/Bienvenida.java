@@ -8,10 +8,15 @@ import java.awt.event.ActionListener;
 
 public class Bienvenida extends javax.swing.JFrame 
 {
-    Cocina coci = new Cocina();
-    Estacion esta = new Estacion(coci);
+    Cocina coci; 
+    Estacion esta; 
     public Bienvenida() 
     {
+        coci = new Cocina();
+        esta = new Estacion();
+        
+        coci.obtenEstacion(esta);
+        esta.obtenCocina(coci);
         Toolkit dimensiones = Toolkit.getDefaultToolkit();
         Dimension d = dimensiones.getScreenSize();
         this.setLocation( (d.width/8),(d.height/6));
