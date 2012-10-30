@@ -2,15 +2,21 @@ package cocinapaty;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.Array;
+import javax.swing.JTextArea;
 
 public class Cocina extends javax.swing.JFrame 
 {
     Estacion est;
+    JTextArea comanda;
+    Array comandas;
 
     public Cocina() 
     {
+        
         initComponents();
-    
+        
+        
         jButton3.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent surtido)
             {

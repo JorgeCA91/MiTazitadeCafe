@@ -37,18 +37,18 @@ public final class SplashLogic
             {                       
                 //se pinta texto del array
                 g.setColor( new Color(4,52,101));//color de fondo
-                g.fillRect(203, 328,280,12);//para tapar texto anterior
+                g.fillRect(300, 250,200,12);//para tapar texto anterior
                 g.setColor(Color.white);//color de texto 
-                g.drawString("Loading "+texto[i-1]+"...", 203, 338);                
+                g.drawString("Loading "+texto[i-1]+"...", 300, 260);                
                 g.setColor(Color.green);//color de barra de progeso
-                g.fillRect(204, 308,(i*307/texto.length), 12);//la barra de progreso
+                g.fillRect(298, 265,(i*218/texto.length), 12);//la barra de progreso
                 //se pinta una linea segmentada encima de la barra verde
                 float dash1[] = {2.0f};
                 BasicStroke dashed = new BasicStroke(9.0f,BasicStroke.CAP_BUTT,BasicStroke.JOIN_MITER,5.0f, dash1, 0.0f);
                 g.setStroke(dashed);
                 g.setColor(Color.GREEN);//color de barra de progeso
                 g.setColor( new Color(4,52,101));
-                g.drawLine(205,314, 510, 314);                
+                g.drawLine(300,270, 500, 270);                
                 //se actualiza todo
                 splash.update();
                 try 
