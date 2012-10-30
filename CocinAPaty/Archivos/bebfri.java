@@ -4,17 +4,45 @@
  */
 package cocinapaty;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JTextArea;
+
 /**
  *
  * @author hebert
  */
-public class snaks extends javax.swing.JFrame {
+public class bebfri extends javax.swing.JFrame {
+    
+    Estacion est;
+    String cafame;
+    Productos prod;
+    JTextArea ticket;
+    double total=0;
+    int numBebida;
+    double precioUnit;
+    double precioInt;
+    String linea1,lineaTicket;
+    
 
     /**
-     * Creates new form snaks
+     * Creates new form bebfri
      */
-    public snaks() {
+    public bebfri(Estacion est) 
+    {
         initComponents();
+        this.est = est;
+        prod = new Productos();
+        prod.generaProd();
+        ticket = new JTextArea();
+        
+    bebfri.ManejadorBebidasF botonesCafefri =new bebfri.ManejadorBebidasF();
+    jButton1.addActionListener(botonesCafefri);
+    jButton2.addActionListener(botonesCafefri);
+    jButton3.addActionListener(botonesCafefri);
+    jButton4.addActionListener(botonesCafefri);
+    jButton5.addActionListener(botonesCafefri);
+    
     }
 
     /**
@@ -26,9 +54,8 @@ public class snaks extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jPanel2 = new javax.swing.JPanel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -58,18 +85,8 @@ public class snaks extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 266, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 323, Short.MAX_VALUE)
-        );
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logochico.png"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -81,6 +98,11 @@ public class snaks extends javax.swing.JFrame {
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jButton1.setBounds(20, 710, 110, 140);
         jLayeredPane1.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -200,49 +222,49 @@ public class snaks extends javax.swing.JFrame {
         jLabel12.setBounds(0, 0, 357, 870);
         jLayeredPane1.add(jLabel12, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 377, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 356, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 890, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 868, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 871, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 871, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jScrollPane2.setViewportView(jPanel2);
+        jScrollPane1.setViewportView(jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
-                .addGap(12, 12, 12))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public void addProducto(Estacion est,String linea)
+        {
+            est.addProductoEst(linea);
+        }
     /**
      * @param args the command line arguments
      */
@@ -272,12 +294,93 @@ public class snaks extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner jSpinner10;
     private javax.swing.JSpinner jSpinner11;
     private javax.swing.JSpinner jSpinner12;
     private javax.swing.JSpinner jSpinner13;
     private javax.swing.JSpinner jSpinner9;
     // End of variables declaration//GEN-END:variables
+
+    private class ManejadorBebidasF implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent botonProducto)
+        {
+            numBebida = 0;
+            precioUnit = 0;
+            precioInt = 0;
+            linea1 = "";
+            lineaTicket = "";
+            if(botonProducto.getSource()==jButton2)
+            {
+                cafame = jSpinner9.getValue().toString(); 
+                linea1 = cafame +prod.getValorComp(8, 0)+"\n";
+                addProducto(est,linea1);
+                numBebida = Integer.parseInt(jSpinner9.getValue().toString());
+                precioUnit = Double.parseDouble(prod.getValorComp(8, 1));
+                precioInt = numBebida*precioUnit;
+                total = total + precioInt;
+                System.out.println(precioInt);
+                lineaTicket = cafame+"  "+prod.getValorComp(8,0)+"  "+prod.getValorComp(8, 1)+"  "+precioInt+"\n";
+                ticket.append(lineaTicket);
+            }
+            if(botonProducto.getSource()==jButton3)
+            {
+                cafame = jSpinner10.getValue().toString();
+                linea1 = cafame + " "+ prod.getValorComp(9, 0)+"\n";
+                addProducto(est,linea1);
+                numBebida = Integer.parseInt(jSpinner9.getValue().toString());
+                precioUnit = Double.parseDouble(prod.getValorComp(9, 1));
+                precioInt = numBebida*precioUnit;
+                total = total + precioInt;
+                System.out.println(precioInt);
+                lineaTicket = cafame+"  "+prod.getValorComp(9, 0)+"  "+prod.getValorComp(9, 1)+"  "+precioInt+"\n";
+                ticket.append(lineaTicket);
+            }
+            if(botonProducto.getSource()==jButton4)
+            {
+                cafame = jSpinner11.getValue().toString();
+                linea1 = cafame + " "+ prod.getValorComp(10, 0)+"\n";
+                addProducto(est,linea1);
+                numBebida = Integer.parseInt(jSpinner11.getValue().toString());
+                precioUnit = Double.parseDouble(prod.getValorComp(10, 1));
+                precioInt = numBebida*precioUnit;
+                total = total + precioInt;
+                System.out.println(precioInt);
+                lineaTicket = cafame+"  "+prod.getValorComp(10, 0)+"  "+prod.getValorComp(10, 1)+"  "+precioInt+"\n";
+                ticket.append(lineaTicket);
+            }
+            if(botonProducto.getSource()==jButton5)
+            {
+                cafame = jSpinner12.getValue().toString();
+                linea1 = cafame + " "+ prod.getValorComp(11, 0)+"\n";
+                addProducto(est,linea1);
+                numBebida = Integer.parseInt(jSpinner12.getValue().toString());
+                precioUnit = Double.parseDouble(prod.getValorComp(11, 1));
+                precioInt = numBebida*precioUnit;
+                total = total + precioInt;
+                System.out.println(precioInt);
+                lineaTicket = cafame+"  "+prod.getValorComp(11, 0)+"  "+prod.getValorComp(11, 1)+"  "+precioInt+"\n";
+                ticket.append(lineaTicket);
+            }
+            if(botonProducto.getSource()==jButton1)
+            {
+                cafame = jSpinner13.getValue().toString();
+                linea1 = cafame + " "+ prod.getValorComp(12, 0)+"\n";
+                addProducto(est,linea1);
+                numBebida = Integer.parseInt(jSpinner13.getValue().toString());
+                precioUnit = Double.parseDouble(prod.getValorComp(12, 1));
+                precioInt = numBebida*precioUnit;
+                total = total + precioInt;
+                System.out.println(precioInt);
+                lineaTicket = cafame+"  "+prod.getValorComp(12, 0)+"  "+prod.getValorComp(12, 1)+"  "+precioInt+"\n";
+                ticket.append(lineaTicket);
+            }
+            
+            
+        }
+    }
+
+
 }

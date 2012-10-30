@@ -6,7 +6,6 @@ package cocinapaty;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 /**
@@ -232,7 +231,7 @@ public class bebidcalien extends javax.swing.JFrame {
         jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton8.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jButton8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton8.setBounds(20, 1200, 119, 140);
+        jButton8.setBounds(20, 1200, 117, 140);
         jLayeredPane1.add(jButton8, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel10.setText("Precio  ");
@@ -354,7 +353,7 @@ public class bebidcalien extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -432,14 +431,13 @@ public class bebidcalien extends javax.swing.JFrame {
         @Override
         public void actionPerformed(ActionEvent botonProducto)
         {
-            
+            numBebida = 0;
+            precioUnit = 0;
+            precioInt = 0;
+            linea1 = "";
+            lineaTicket = "";
             if(botonProducto.getSource()==jButton1)
             {
-                numBebida = 0;
-                precioUnit = 0;
-                precioInt = 0;
-                linea1 = "";
-                lineaTicket = "";
                 cafame = jSpinner9.getValue().toString(); 
                 linea1 = cafame +prod.getValorComp(0, 0)+"\n";
                 addProducto(est,linea1);
@@ -449,15 +447,10 @@ public class bebidcalien extends javax.swing.JFrame {
                 total = total + precioInt;
                 System.out.println(precioInt);
                 lineaTicket = cafame+"  "+prod.getValorComp(0, 0)+"  "+prod.getValorComp(0, 1)+"  "+precioInt+"\n";
-                ticket.append(lineaTicket);                
+                ticket.append(lineaTicket);
             }
             if(botonProducto.getSource()==jButton2)
             {
-                numBebida = 0;
-                precioUnit = 0;
-                precioInt = 0;
-                linea1 = "";
-                lineaTicket = "";
                 cafame = jSpinner10.getValue().toString();
                 linea1 = cafame + " "+ prod.getValorComp(1, 0)+"\n";
                 addProducto(est,linea1);
@@ -471,11 +464,6 @@ public class bebidcalien extends javax.swing.JFrame {
             }
             if(botonProducto.getSource()==jButton3)
             {
-                numBebida = 0;
-                precioUnit = 0;
-                precioInt = 0;
-                linea1 = "";
-                lineaTicket = "";
                 cafame = jSpinner1.getValue().toString();
                 linea1 = cafame + " "+ prod.getValorComp(2, 0)+"\n";
                 addProducto(est,linea1);
@@ -489,11 +477,6 @@ public class bebidcalien extends javax.swing.JFrame {
             }
             if(botonProducto.getSource()==jButton4)
             {
-                numBebida = 0;
-                precioUnit = 0;
-                precioInt = 0;
-                linea1 = "";
-                lineaTicket = "";
                 cafame = jSpinner12.getValue().toString();
                 linea1 = cafame + " "+ prod.getValorComp(3, 0)+"\n";
                 addProducto(est,linea1);
@@ -507,11 +490,6 @@ public class bebidcalien extends javax.swing.JFrame {
             }
             if(botonProducto.getSource()==jButton5)
             {
-                numBebida = 0;
-                precioUnit = 0;
-                precioInt = 0;
-                linea1 = "";
-                lineaTicket = "";
                 cafame = jSpinner13.getValue().toString();
                 linea1 = cafame + " "+ prod.getValorComp(4, 0)+"\n";
                 addProducto(est,linea1);
@@ -525,11 +503,6 @@ public class bebidcalien extends javax.swing.JFrame {
             }
             if(botonProducto.getSource()==jButton6)
             {
-                numBebida = 0;
-                precioUnit = 0;
-                precioInt = 0;
-                linea1 = "";
-                lineaTicket = "";
                 cafame = jSpinner14.getValue().toString();
                 linea1 = cafame + " "+ prod.getValorComp(5, 0)+"\n";
                 addProducto(est,linea1);
@@ -543,11 +516,6 @@ public class bebidcalien extends javax.swing.JFrame {
             }
             if(botonProducto.getSource()==jButton7)
             {
-                numBebida = 0;
-                precioUnit = 0;
-                precioInt = 0;
-                linea1 = "";
-                lineaTicket = "";
                 cafame = jSpinner15.getValue().toString();
                 linea1 = cafame + " "+ prod.getValorComp(6, 0)+"\n";
                 addProducto(est,linea1);
@@ -561,11 +529,6 @@ public class bebidcalien extends javax.swing.JFrame {
             }
             if(botonProducto.getSource()==jButton8)
             {
-                numBebida = 0;
-                precioUnit = 0;
-                precioInt = 0;
-                linea1 = "";
-                lineaTicket = "";
                 cafame = jSpinner11.getValue().toString();
                 linea1 = cafame + " "+ prod.getValorComp(7, 0)+"\n";
                 addProducto(est,linea1);
@@ -578,7 +541,6 @@ public class bebidcalien extends javax.swing.JFrame {
                 ticket.append(lineaTicket);
             }
             
-            JOptionPane.showMessageDialog(null,ticket,"Ticket", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 }

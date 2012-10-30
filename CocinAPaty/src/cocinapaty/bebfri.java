@@ -4,19 +4,46 @@
  */
 package cocinapaty;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+
 /**
  *
  * @author hebert
  */
 public class bebfri extends javax.swing.JFrame {
+    
+    Estacion est;
+    String cafame;
+    Productos prod;
+    JTextArea ticket;
+    double total=0;
+    int numBebida;
+    double precioUnit;
+    double precioInt;
+    String linea1,lineaTicket;
+    
 
     /**
      * Creates new form bebfri
      */
-    public bebfri() 
+    public bebfri(Estacion est) 
     {
         initComponents();
-
+        this.est = est;
+        prod = new Productos();
+        prod.generaProd();
+        ticket = new JTextArea();
+        
+    bebfri.ManejadorBebidasF botonesCafefri =new bebfri.ManejadorBebidasF();
+    jButton1.addActionListener(botonesCafefri);
+    jButton2.addActionListener(botonesCafefri);
+    jButton3.addActionListener(botonesCafefri);
+    jButton4.addActionListener(botonesCafefri);
+    jButton5.addActionListener(botonesCafefri);
+    
     }
 
     /**
@@ -72,6 +99,11 @@ public class bebfri extends javax.swing.JFrame {
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jButton1.setBounds(20, 710, 110, 140);
         jLayeredPane1.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -195,11 +227,11 @@ public class bebfri extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 356, Short.MAX_VALUE)
+            .addGap(0, 358, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 2, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,16 +248,24 @@ public class bebfri extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public void addProducto(Estacion est,String linea)
+        {
+            est.addProductoEst(linea);
+        }
     /**
      * @param args the command line arguments
      */
@@ -262,4 +302,86 @@ public class bebfri extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinner13;
     private javax.swing.JSpinner jSpinner9;
     // End of variables declaration//GEN-END:variables
+
+    private class ManejadorBebidasF implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent botonProducto)
+        {
+            numBebida = 0;
+            precioUnit = 0;
+            precioInt = 0;
+            linea1 = "";
+            lineaTicket = "";
+            if(botonProducto.getSource()==jButton2)
+            {
+                cafame = jSpinner9.getValue().toString(); 
+                linea1 = cafame +prod.getValorComp(8, 0)+"\n";
+                addProducto(est,linea1);
+                numBebida = Integer.parseInt(jSpinner9.getValue().toString());
+                precioUnit = Double.parseDouble(prod.getValorComp(8, 1));
+                precioInt = numBebida*precioUnit;
+                total = total + precioInt;
+                System.out.println(precioInt);
+                lineaTicket = cafame+"  "+prod.getValorComp(8,0)+"  "+prod.getValorComp(8, 1)+"  "+precioInt+"\n";
+                ticket.append(lineaTicket);
+            }
+            if(botonProducto.getSource()==jButton3)
+            {
+                cafame = jSpinner10.getValue().toString();
+                linea1 = cafame + " "+ prod.getValorComp(9, 0)+"\n";
+                addProducto(est,linea1);
+                numBebida = Integer.parseInt(jSpinner10.getValue().toString());
+                precioUnit = Double.parseDouble(prod.getValorComp(9, 1));
+                precioInt = numBebida*precioUnit;
+                total = total + precioInt;
+                System.out.println(precioInt);
+                lineaTicket = cafame+"  "+prod.getValorComp(9, 0)+"  "+prod.getValorComp(9, 1)+"  "+precioInt+"\n";
+                ticket.append(lineaTicket);
+            }
+            if(botonProducto.getSource()==jButton4)
+            {
+                cafame = jSpinner11.getValue().toString();
+                linea1 = cafame + " "+ prod.getValorComp(10, 0)+"\n";
+                addProducto(est,linea1);
+                numBebida = Integer.parseInt(jSpinner11.getValue().toString());
+                precioUnit = Double.parseDouble(prod.getValorComp(10, 1));
+                precioInt = numBebida*precioUnit;
+                total = total + precioInt;
+                System.out.println(precioInt);
+                lineaTicket = cafame+"  "+prod.getValorComp(10, 0)+"  "+prod.getValorComp(10, 1)+"  "+precioInt+"\n";
+                ticket.append(lineaTicket);
+            }
+            if(botonProducto.getSource()==jButton5)
+            {
+                cafame = jSpinner12.getValue().toString();
+                linea1 = cafame + " "+ prod.getValorComp(11, 0)+"\n";
+                addProducto(est,linea1);
+                numBebida = Integer.parseInt(jSpinner12.getValue().toString());
+                precioUnit = Double.parseDouble(prod.getValorComp(11, 1));
+                precioInt = numBebida*precioUnit;
+                total = total + precioInt;
+                System.out.println(precioInt);
+                lineaTicket = cafame+"  "+prod.getValorComp(11, 0)+"  "+prod.getValorComp(11, 1)+"  "+precioInt+"\n";
+                ticket.append(lineaTicket);
+            }
+            if(botonProducto.getSource()==jButton1)
+            {
+                cafame = jSpinner13.getValue().toString();
+                linea1 = cafame + " "+ prod.getValorComp(12, 0)+"\n";
+                addProducto(est,linea1);
+                numBebida = Integer.parseInt(jSpinner13.getValue().toString());
+                precioUnit = Double.parseDouble(prod.getValorComp(12, 1));
+                precioInt = numBebida*precioUnit;
+                total = total + precioInt;
+                System.out.println(precioInt);
+                lineaTicket = cafame+"  "+prod.getValorComp(12, 0)+"  "+prod.getValorComp(12, 1)+"  "+precioInt+"\n";
+                ticket.append(lineaTicket);
+            }
+            
+            JOptionPane.showMessageDialog(null,ticket,"Ticket", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+
 }

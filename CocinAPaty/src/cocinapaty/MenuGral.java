@@ -11,6 +11,9 @@
 
 package cocinapaty;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author PATY
@@ -19,12 +22,50 @@ public class MenuGral extends javax.swing.JFrame {
 
     /** Creates new form MenuGral */
     bebidcalien bebidaCaliente;
+    bebfri bebidasFrias;
+    snacks snack;
+    postres postre;
     public MenuGral(Estacion est) 
     {
         initComponents();
         bebidaCaliente = new bebidcalien(est);
+        bebidasFrias = new bebfri(est);
+        snack = new snacks(est);
+        postre = new postres(est);
+        manejadores();
+    
     }
-
+    public void manejadores()
+    {
+        jButton1.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent accion)
+            {
+                bebidaCaliente.setVisible(true);
+            }
+        });
+        jButton2.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent accion)
+            {
+                bebidasFrias.setVisible(true);
+            }
+        });
+        jButton3.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent accion)
+            {
+                snack.setVisible(true);
+            }
+        });
+        jButton4.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent accion)
+            {
+                postre.setVisible(true);
+            }
+        });
+    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -114,23 +155,13 @@ public class MenuGral extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-           bebidaCaliente.setVisible(true);
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-           new bebfri().setVisible(true);
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    /**
-    * @param args the command line arguments
-    */
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                //this.setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

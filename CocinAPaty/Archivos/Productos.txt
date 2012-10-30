@@ -6,19 +6,18 @@
 "Te de hierva buena"-15.0
 "Te de manzanilla"-15.0
 "Te de menta fria"-15.0
-"infusion organica"-15.0
-"cafe helado"-15.0
-"capuchino"-15.0
-"frape oreo"-15.0
-"frappuccino"-15.0
-"frappuccino mocca"-15.0
-"baguette hawaiano"-15.0
-"croissant jamon"-15.0
-"cubano"-15.0
-"sandwich hawaiano"-15.0
-"sandwich"-15.0
-"browie"-15.0
-"nieve de frambuesa"-15.0
-"pay de zarzamora"-15.0
-"selva negra"-15.0
-"tres leches"-15.0
+"cafe helado"-35.0
+"cafe mocca"-35.0
+"capuchino"-30.0
+"frape oreo"-40.0
+"frappuccino"-35.0
+"baguette cubano"-38.0
+"baguette hawaiano"-37.0
+"croissant"-32.0
+"sandwich clasico"-40.0
+"sandwich hawaiano"-36.0
+"browie"-38.0
+"pastel tres leches"-37.0
+"helado de fresa"-32.0
+"pay de zarzamora"-40.0
+"selva negra"-36.0
