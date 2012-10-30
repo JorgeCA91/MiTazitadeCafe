@@ -6,8 +6,10 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Bienvenida extends javax.swing.JFrame {
-
+public class Bienvenida extends javax.swing.JFrame 
+{
+    Cocina coci = new Cocina();
+    Estacion esta = new Estacion(coci);
     public Bienvenida() 
     {
         Toolkit dimensiones = Toolkit.getDefaultToolkit();
@@ -23,13 +25,13 @@ public class Bienvenida extends javax.swing.JFrame {
         cocinero.addActionListener(new ActionListener(){
         public void actionPerformed(ActionEvent evento)
                 {
-                    new Cocina().setVisible(true);
+                    coci.setVisible(true);
                 }
     });
         jButton2.addActionListener(new ActionListener(){
         public void actionPerformed(ActionEvent evento)
                 {
-                    new Estacion().setVisible(true);
+                    esta.setVisible(true);
                 }
     });
     }

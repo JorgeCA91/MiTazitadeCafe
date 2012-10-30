@@ -14,7 +14,7 @@ import java.util.Arrays;
  */
 public class Productos 
 {
-    String ruta1="Productos.txt";
+    String ruta1="Archivos/Productos.txt";
     String[][] productos = new String[50][2];
     BufferedReader producto;
     Productos()

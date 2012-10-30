@@ -6,21 +6,25 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 
 public class Estacion extends javax.swing.JFrame {
-    
+    Cocina coc;
     MenuGral menu;
     public bebidcalien bebc;
     String mesero,mesa;
+    BufferedWriter bw;
     Comanda com;
-    public Estacion() 
+    public Estacion(Cocina coc) 
     {
         initComponents();
         menu = new MenuGral(this);
         com = new Comanda();
         com.generaCompImp();
+        this.coc = coc;
         try
+            
   {
   	         
-  BufferedWriter bw = new BufferedWriter(new FileWriter(com.ruta1));
+  BufferedWriter bwT = new BufferedWriter(new FileWriter(com.ruta1));
+  bw = bwT;
   }
  catch(Exception ioex) 
  {System.out.println("I/O Error");
@@ -30,11 +34,10 @@ public class Estacion extends javax.swing.JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                com.escribe(mesa, null);
+                com.escribe(mesa, bw);
+                
             }
-        });{
-        
-    }
+        });
     }
 
     @SuppressWarnings("unchecked")
@@ -70,7 +73,7 @@ public class Estacion extends javax.swing.JFrame {
         jLayeredPane1.add(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "mesa 1", "mesa 2", "mesa 3", "mesa 4", "mesa 5", "mesa 6", "mesa 7", "mesa 8" }));
-        jComboBox2.setBounds(110, 150, 70, 20);
+        jComboBox2.setBounds(110, 150, 70, 22);
         jLayeredPane1.add(jComboBox2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menu.png"))); // NOI18N
@@ -100,7 +103,7 @@ public class Estacion extends javax.swing.JFrame {
         jLayeredPane1.add(jButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Luis Fonseca", "Maria Santos", "Alberto Luciano", "Edgar Quintero" }));
-        jComboBox1.setBounds(110, 120, 120, 20);
+        jComboBox1.setBounds(110, 120, 120, 22);
         jLayeredPane1.add(jComboBox1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel1.setText("Mesero");
@@ -147,7 +150,7 @@ public class Estacion extends javax.swing.JFrame {
         jLayeredPane1.add(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton3.setText("jButton3");
-        jButton3.setBounds(110, 180, 73, 23);
+        jButton3.setBounds(110, 180, 75, 23);
         jLayeredPane1.add(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -158,7 +161,7 @@ public class Estacion extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE)
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 559, Short.MAX_VALUE)
         );
 
         pack();

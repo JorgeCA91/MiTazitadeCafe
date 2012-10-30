@@ -18,7 +18,7 @@ public class Comanda
     BufferedReader comanda;
     Comanda()
     {
-        comandas[50][1] = new String();
+        comandas = new String[50][1];
     }
     
     public void generaCompImp()

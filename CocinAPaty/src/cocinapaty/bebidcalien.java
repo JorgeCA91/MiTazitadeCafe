@@ -6,6 +6,7 @@ package cocinapaty;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 /**
@@ -431,13 +432,14 @@ public class bebidcalien extends javax.swing.JFrame {
         @Override
         public void actionPerformed(ActionEvent botonProducto)
         {
-            numBebida = 0;
-            precioUnit = 0;
-            precioInt = 0;
-            linea1 = "";
-            lineaTicket = "";
+            
             if(botonProducto.getSource()==jButton1)
             {
+                numBebida = 0;
+                precioUnit = 0;
+                precioInt = 0;
+                linea1 = "";
+                lineaTicket = "";
                 cafame = jSpinner9.getValue().toString(); 
                 linea1 = cafame +prod.getValorComp(0, 0)+"\n";
                 addProducto(est,linea1);
@@ -447,14 +449,19 @@ public class bebidcalien extends javax.swing.JFrame {
                 total = total + precioInt;
                 System.out.println(precioInt);
                 lineaTicket = cafame+"  "+prod.getValorComp(0, 0)+"  "+prod.getValorComp(0, 1)+"  "+precioInt+"\n";
-                ticket.append(lineaTicket);
+                ticket.append(lineaTicket);                
             }
             if(botonProducto.getSource()==jButton2)
             {
+                numBebida = 0;
+                precioUnit = 0;
+                precioInt = 0;
+                linea1 = "";
+                lineaTicket = "";
                 cafame = jSpinner10.getValue().toString();
                 linea1 = cafame + " "+ prod.getValorComp(1, 0)+"\n";
                 addProducto(est,linea1);
-                numBebida = Integer.parseInt(jSpinner9.getValue().toString());
+                numBebida = Integer.parseInt(jSpinner10.getValue().toString());
                 precioUnit = Double.parseDouble(prod.getValorComp(1, 1));
                 precioInt = numBebida*precioUnit;
                 total = total + precioInt;
@@ -464,41 +471,114 @@ public class bebidcalien extends javax.swing.JFrame {
             }
             if(botonProducto.getSource()==jButton3)
             {
+                numBebida = 0;
+                precioUnit = 0;
+                precioInt = 0;
+                linea1 = "";
+                lineaTicket = "";
                 cafame = jSpinner1.getValue().toString();
-                String linea1 = cafame + " "+ prod.getValorComp(2, 0)+"\n";
+                linea1 = cafame + " "+ prod.getValorComp(2, 0)+"\n";
                 addProducto(est,linea1);
+                numBebida = Integer.parseInt(jSpinner1.getValue().toString());
+                precioUnit = Double.parseDouble(prod.getValorComp(2, 1));
+                precioInt = numBebida*precioUnit;
+                total = total + precioInt;
+                System.out.println(precioInt);
+                lineaTicket = cafame+"  "+prod.getValorComp(2, 0)+"  "+prod.getValorComp(2, 1)+"  "+precioInt+"\n";
+                ticket.append(lineaTicket);
             }
             if(botonProducto.getSource()==jButton4)
             {
+                numBebida = 0;
+                precioUnit = 0;
+                precioInt = 0;
+                linea1 = "";
+                lineaTicket = "";
                 cafame = jSpinner12.getValue().toString();
-                String linea1 = cafame + " "+ prod.getValorComp(5, 0)+"\n";
+                linea1 = cafame + " "+ prod.getValorComp(3, 0)+"\n";
                 addProducto(est,linea1);
+                numBebida = Integer.parseInt(jSpinner12.getValue().toString());
+                precioUnit = Double.parseDouble(prod.getValorComp(3, 1));
+                precioInt = numBebida*precioUnit;
+                total = total + precioInt;
+                System.out.println(precioInt);
+                lineaTicket = cafame+"  "+prod.getValorComp(3, 0)+"  "+prod.getValorComp(3, 1)+"  "+precioInt+"\n";
+                ticket.append(lineaTicket);
             }
             if(botonProducto.getSource()==jButton5)
             {
+                numBebida = 0;
+                precioUnit = 0;
+                precioInt = 0;
+                linea1 = "";
+                lineaTicket = "";
                 cafame = jSpinner13.getValue().toString();
-                String linea1 = cafame + " "+ prod.getValorComp(4, 0)+"\n";
+                linea1 = cafame + " "+ prod.getValorComp(4, 0)+"\n";
                 addProducto(est,linea1);
+                numBebida = Integer.parseInt(jSpinner13.getValue().toString());
+                precioUnit = Double.parseDouble(prod.getValorComp(4, 1));
+                precioInt = numBebida*precioUnit;
+                total = total + precioInt;
+                System.out.println(precioInt);
+                lineaTicket = cafame+"  "+prod.getValorComp(4, 0)+"  "+prod.getValorComp(4, 1)+"  "+precioInt+"\n";
+                ticket.append(lineaTicket);
             }
             if(botonProducto.getSource()==jButton6)
             {
+                numBebida = 0;
+                precioUnit = 0;
+                precioInt = 0;
+                linea1 = "";
+                lineaTicket = "";
                 cafame = jSpinner14.getValue().toString();
-                String linea1 = cafame + " "+ prod.getValorComp(5, 0)+"\n";
+                linea1 = cafame + " "+ prod.getValorComp(5, 0)+"\n";
                 addProducto(est,linea1);
+                numBebida = Integer.parseInt(jSpinner14.getValue().toString());
+                precioUnit = Double.parseDouble(prod.getValorComp(5, 1));
+                precioInt = numBebida*precioUnit;
+                total = total + precioInt;
+                System.out.println(precioInt);
+                lineaTicket = cafame+"  "+prod.getValorComp(5, 0)+"  "+prod.getValorComp(5, 1)+"  "+precioInt+"\n";
+                ticket.append(lineaTicket);
             }
             if(botonProducto.getSource()==jButton7)
             {
+                numBebida = 0;
+                precioUnit = 0;
+                precioInt = 0;
+                linea1 = "";
+                lineaTicket = "";
                 cafame = jSpinner15.getValue().toString();
-                String linea1 = cafame + " "+ prod.getValorComp(6, 0)+"\n";
+                linea1 = cafame + " "+ prod.getValorComp(6, 0)+"\n";
                 addProducto(est,linea1);
+                numBebida = Integer.parseInt(jSpinner15.getValue().toString());
+                precioUnit = Double.parseDouble(prod.getValorComp(6, 1));
+                precioInt = numBebida*precioUnit;
+                total = total + precioInt;
+                System.out.println(precioInt);
+                lineaTicket = cafame+"  "+prod.getValorComp(6, 0)+"  "+prod.getValorComp(6, 1)+"  "+precioInt+"\n";
+                ticket.append(lineaTicket);
             }
             if(botonProducto.getSource()==jButton8)
             {
+                numBebida = 0;
+                precioUnit = 0;
+                precioInt = 0;
+                linea1 = "";
+                lineaTicket = "";
                 cafame = jSpinner11.getValue().toString();
-                String linea1 = cafame +" "+ prod.getValorComp(7, 0)+"\n";
+                linea1 = cafame + " "+ prod.getValorComp(7, 0)+"\n";
                 addProducto(est,linea1);
+                numBebida = Integer.parseInt(jSpinner11.getValue().toString());
+                precioUnit = Double.parseDouble(prod.getValorComp(7, 1));
+                precioInt = numBebida*precioUnit;
+                total = total + precioInt;
+                System.out.println(precioInt);
+                lineaTicket = cafame+"  "+prod.getValorComp(7, 0)+"  "+prod.getValorComp(7, 1)+"  "+precioInt+"\n";
+                ticket.append(lineaTicket);
             }
             
+            JOptionPane.showMessageDialog(null,ticket,"Ticket", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 }
